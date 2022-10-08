@@ -1,0 +1,84 @@
+use rand::Rng;
+
+  
+fn main() {
+    let mut i=0;
+    let mut rng = rand::thread_rng();
+    let mut Tabla:[i32;10]=[0;10];
+    let mut Tabla2:[i32;10]=[0;10];
+   
+    let mut puntaje=0;
+    let mut segundo=0;  
+    let mut valor=0;
+    for x in Tabla{
+        let mut ronda1: i32 = rng.gen_range(0..10);
+        println!("ronda 1 :{}", ronda1);
+        if ronda1==10{
+            println!("Chuza");
+            let ronda2: i32 = rng.gen_range(0..10);
+            println!("{}", ronda1);
+            valor=ronda2;
+        }
+        
+        if ronda1<=9{
+            segundo=10-ronda1;
+            let mut ronda2: i32 = rng.gen_range(0..segundo);
+            println!("ronda 2 :{}", ronda2);
+            valor=ronda2;
+        }
+        puntaje=ronda1+valor;
+        if puntaje==10{
+            println!("media chuza");
+        }
+        println!("puntaje {}", puntaje );
+
+        Tabla[i]=puntaje;
+        i +=1; 
+    }
+    i=0;
+    for x in Tabla2{
+        let mut ronda1: i32 = rng.gen_range(0..10);
+        println!("ronda 1 :{}", ronda1);
+        if ronda1==10{
+            println!("Chuza");
+            let ronda2: i32 = rng.gen_range(0..10);
+            println!("{}", ronda1);
+            valor=ronda2;
+        }
+        
+        if ronda1<=9{
+            segundo=10-ronda1;
+            let mut ronda2: i32 = rng.gen_range(0..segundo);
+            println!("ronda 2 :{}", ronda2);
+            valor=ronda2;
+        }
+        puntaje=ronda1+valor;
+        if puntaje==10{
+            println!("media chuza");
+        }
+        println!("puntaje {}", puntaje );
+
+        Tabla2[i]=puntaje;
+        i +=1; 
+    }
+
+    println!("Tabla del jugador 1: {:?}",Tabla );
+    println!("Tabla del jugador 2: {:?}",Tabla2 );
+    let mut jugador1=0;
+    let mut jugador2=0;
+    for x in Tabla{
+        jugador1=x+jugador1;
+    }
+    for x in Tabla2{
+        jugador2=x+jugador2;
+    }
+    println!("Jugador 1 obtuvo : {}",jugador1 );
+    println!("Jugador 2 obtuvo :{}",jugador2 );
+
+    if jugador1<jugador2{
+        println!("gano el jugador 2");
+    }
+    else {
+        println!("gano el jugador 1");
+    }
+}
